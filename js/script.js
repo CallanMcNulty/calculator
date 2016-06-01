@@ -43,20 +43,20 @@ $(document).ready(function() {
     var result;
 
     if (op === "+") {
-      result = add(number1, number2);
+      result = add(number1, number2).toFixed(4);
     } else if (op === "-") {
-      result = subtract(number1, number2);
+      result = subtract(number1, number2).toFixed(4);
     } else if (op === "*") {
-      result = multiply(number1, number2);
+      result = multiply(number1, number2).toFixed(4);
     } else if (op === "/") {
-      result = divide(number1, number2);
+      result = divide(number1, number2).toFixed(4);
     } else if (op === "BMI") {
-      result = bmi(number1, number2);
+      result = bmi(number1, number2).toFixed(4);
     } else {
       if (number2.toUpperCase() === "C"){
-        result = ctof(number1);
+        result = ctof(number1).toFixed(4)+"\xB0 F";
       } else {
-        result = ftoc(number1);
+        result = ftoc(number1).toFixed(4)+"\xB0 C";
 
       }
     }
@@ -75,7 +75,7 @@ $(document).ready(function() {
 
   $('input[name=operations]').click(function() {
     var checked = $('input[name=operations]:checked').val();
-    if(checked != "BMI" && checked != ) {
+    if(checked != "BMI" && checked != "\xB0") {
       $("#inpt1").attr('placeholder', "");
       $("#inpt2").attr('placeholder', "");
     }
