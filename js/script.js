@@ -21,7 +21,8 @@ var bmi = function(weight, height){
 };
 
 var ctof = function(temp){
-  return multiply(temp, divide(9/5)) + 32;
+  debugger;
+  return multiply(temp, divide(9,5)) + 32;
 };
 
 var ftoc = function(temp){
@@ -31,11 +32,52 @@ var ftoc = function(temp){
 //User interface (or front-end) logic
 
 $(document).ready(function() {
-  $("form.add").submit(function(event) {
+  $("form.calc").submit(function(event) {
     event.preventDefault();
-    var number1 = parseInt($("#add1").val());
-    var number2 = parseInt($("#add2").val());
-    var result = add(number1, number2);
-    $("#output").text(result);
+    var number1 = parseInt($("#inpt1").val());
+    var number2 = $("#inpt2").val();
+    if(number2.toUpperCase() != "C" && number2.toUpperCase() != "F") {
+      number2 = parseInt(number2);
+    }
+    var op = $('input[name=operations]:checked').val();
+    var result;
+
+    if (op === "+") {
+      result = add(number1, number2);
+    } else if (op === "-") {
+      result = subtract(number1, number2);
+    } else if (op === "*") {
+      result = multiply(number1, number2);
+    } else if (op === "/") {
+      result = divide(number1, number2);
+    } else if (op === "BMI") {
+      result = bmi(number1, number2);
+    } else {
+      if (number2.toUpperCase() === "C"){
+        result = ctof(number1);
+      } else {
+        result = ftoc(number1);
+
+      }
+    }
+
+    $("#result-field").attr('placeholder', result.toString());
+    $("#op-symbol").text(op);
+  });
+  $("#bmi-btn").click(function() {
+    $("#inpt1").attr('placeholder', "weight(lbs)");
+    $("#inpt2").attr('placeholder', "height(in)");
+  });
+  $("#cf-btn").click(function() {
+    $("#inpt1").attr('placeholder', "degrees");
+    $("#inpt2").attr('placeholder', "C/F");
+  });
+
+  $('input[name=operations]').click(function() {
+    var checked = $('input[name=operations]:checked').val();
+    if(checked != "BMI" && checked != ) {
+      $("#inpt1").attr('placeholder', "");
+      $("#inpt2").attr('placeholder', "");
+    }
   });
 });

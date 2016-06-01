@@ -10,20 +10,54 @@
   <body>
     <div class="container">
       <h1>Calculator</h1>
-      <form class="add">
-        <div class="form-group">
-          <label for="add1">1st number:</label>
-          <input id="add1" class="form-control" type="text">
-        </div>
-        <div class="form-group">
-          <label for="add2">2nd number:</label>
-          <input id="add2" class="form-control" type="text">
-        </div>
-        <button type="submit" class="btn">Add!</button>
-      </form>
-      <div id="output">
+      <form class="calc input-lg">
+        <div class="form-inline">
+          <div class="form-group">
+            <input id="inpt1" class="form-control" type="text">
+          </div>
+          <p id="op-symbol" class="form-control-static">&nbsp;</p>
+          <div class="form-group">
+            <input id="inpt2" class="form-control" type="text">
+          </div>
 
-      </div>
+          <button type="submit" class="btn btn-primary">=</button>
+          <input class="form-control" id="result-field" placeholder="" disabled>
+        </div>
+
+        <div id="buttons-div">
+          <div class="radio-inline">
+            <label>
+              <input type="radio" name="operations" id="add" value="+" checked>Add
+            </label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <input type="radio" name="operations" id="subtract" value="-">Subtract
+            </label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <input type="radio" name="operations" id="multiply" value="*">Multiply
+            </label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <input type="radio" name="operations" id="divide" value="/">Divide
+            </label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <input id="bmi-btn" type="radio" name="operations" id="divide" value="BMI">BMI
+            </label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <input id="cf-btn" type="radio" name="operations" id="divide" value=&deg;>Convert Temperature
+            </label>
+          </div>
+        </div>
+      </form>
+
     </div>
   </body>
 </html>
