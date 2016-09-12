@@ -12,7 +12,6 @@ A two number calculator which also includes functionality for calculating BMI an
 
 * Open in a Bootstrap-supported browser
 * Bootstrap stylesheet is included, so it will not be necessary to download it
-* OR view in GitHub pages http://callanmcnulty.github.io/landing-page/
 
 ## Support and contact details
 
